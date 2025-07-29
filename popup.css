@@ -1,0 +1,33 @@
+body {
+    width: 250px;
+    font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+    direction: rtl;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+p {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.4;
+}

@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "SnappFood vs TapsiFood Price Comparator",
+  "version": "2.0.0",
+  "description": "Compares food prices between SnappFood and TapsiFood and displays the difference directly on the page.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.snappfood.ir/*",
+    "*://*.tapsi.food/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.snappfood.ir/restaurant/menu/*"],
+      "js": ["content/snappfood-injector.js"],
+      "css": ["styles/injected-styles.css"]
+    },
+    {
+      "matches": ["*://*.tapsi.food/vendor/*"],
+      "js": ["content/tapsifood-injector.js"],
+      "css": ["styles/injected-styles.css"]
+    },
+    {
+      "matches": ["*://*.snappfood.ir/"],
+      "js": ["content/homepage-injector.js"],
+      "css": ["styles/injected-styles.css"]
+    },
+    {
+      "matches": ["*://*.snappfood.ir/service/*/city/*"],
+      "js": ["content/service-pages-injector.js"],
+      "css": ["styles/injected-styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*.png",
+        "data/*.csv"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
